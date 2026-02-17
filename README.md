@@ -15,3 +15,22 @@ orjson — это быстрая и правильная Python-библиоте
 # Быстрый старт
 Устновление библиотеки:
 ```pip install orjson```
+
+Простой пример использования:
+```
+import orjson
+
+# Данные для сериализации
+data = {"name": "John", "age": 30, "city": "New York"}
+
+# Сериализация (Python -> JSON bytes)
+json_bytes = orjson.dumps(data)
+print(json_bytes)  # Вывод: b'{"name":"John","age":30,"city":"New York"}'
+
+# Для получения строки используйте .decode()
+json_str = json_bytes.decode()
+print(json_str)  # Вывод: {"name":"John","age":30,"city":"New York"}
+
+# Десериализация (JSON bytes -> Python dict)
+data_again = orjson.loads(json_bytes)
+print(data_again) # Вывод: {'name': 'John', 'age': 30, 'city': 'New York'}```
