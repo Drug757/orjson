@@ -25,14 +25,15 @@ import orjson
 # Данные для сериализации
 data = {"name": "John", "age": 30, "city": "New York"}
 
-# Сериализация (Python -> JSON bytes)
+# Сериализация (Python > JSON bytes)
 json_bytes = orjson.dumps(data)
 print(json_bytes)  # Вывод: b'{"name":"John","age":30,"city":"New York"}'
 
-# Для получения строки используйте .decode()
+# Для получения строки использовать .decode()
 json_str = json_bytes.decode()
 print(json_str)  # Вывод: {"name":"John","age":30,"city":"New York"}
 
-# Десериализация (JSON bytes -> Python dict)
+# Десериализация (JSON bytes > Python dict)
 data_again = orjson.loads(json_bytes)
-print(data_again) # Вывод: {'name': 'John', 'age': 30, 'city': 'New York'}```
+print(data_again) # Вывод: {'name': 'John', 'age': 30, 'city': 'New York'}
+```
