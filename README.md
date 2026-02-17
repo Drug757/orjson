@@ -65,11 +65,29 @@ print(data_again) # Вывод: {'name': 'John', 'age': 30, 'city': 'New York'}
 
 Опция(orjson.) ->	Назначение
 * **orjson.OPT_INDENT_2** ->	Форматирует вывод с отступами в 2 пробела (аналог indent=2 в json);
+```
+print(orjson.dumps({"a":1,"b":2}, option=orjson.OPT_INDENT_2).decode()) 
+```
 * **orjson.OPT_SORT_KEYS** ->	Сортирует ключи в словарях при выводе (аналог sort_keys=True);
+```
+print(orjson.dumps({"c":3, "a":1, "b":2}, option=orjson.OPT_SORT_KEYS).decode())  # {"a":1,"b":2,"c":3}
+```
 * **orjson.OPT_OMIT_MICROSECONDS** ->	При сериализации datetime отбрасывает микросекунды;
+```
+print(orjson.dumps({"time": datetime.datetime.now()}, option=orjson.OPT_OMIT_MICROSECONDS).decode())  # Без .xxxxxx
+```
 * **orjson.OPT_NON_STR_KEYS** ->	Позволяет использовать в словарях ключи не только строкового типа (например, числа), которые будут автоматически преобразованы в строки;
+```
+print(orjson.dumps({1: "one", 2: "two"}, option=orjson.OPT_NON_STR_KEYS).decode())  # {"1":"one","2":"two"}
+```
 * **orjson.OPT_SERIALIZE_NUMPY** ->	Включает поддержку сериализации numpy типов (например, ndarray). Без этой опции numpy-объекты вызовут ошибку;
+```
+print(orjson.dumps({"arr": np.array([1,2,3])}, option=orjson.OPT_SERIALIZE_NUMPY).decode())  # {"arr":[1,2,3]}
+```
 * **orjson.OPT_NAIVE_UTC**	Интерпретирует "наивные" (не зависящие от часового пояса) объекты datetime как UTC.
+```
+print(orjson.dumps({"time": datetime.datetime(2024,1,1,12,0)}, option=orjson.OPT_NAIVE_UTC).decode())  # с Z в конце
+```
 
 ### 3. Вспомогательные сущности
 
