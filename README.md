@@ -14,4 +14,4 @@ orjson — это быстрая и правильная Python-библиоте
 
 # Быстрый старт
 Устновление библиотеки:
-'pip install orjson'
+'''pip install orjson'''
