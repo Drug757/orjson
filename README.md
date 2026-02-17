@@ -37,3 +37,8 @@ print(json_str)  # Вывод: {"name":"John","age":30,"city":"New York"}
 data_again = orjson.loads(json_bytes)
 print(data_again) # Вывод: {'name': 'John', 'age': 30, 'city': 'New York'}
 ```
+
+# Основные сущности и функции
+Библиотека orjson имеет простой и понятный API, состоящий из двух основных функций и набора констант-опций.
+## 1. Функции сериализации и десериализации
+* orjson.dumps(obj, default=None, option=None)
