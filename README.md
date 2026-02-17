@@ -81,3 +81,9 @@ data = {"metadata": orjson.Fragment(precomputed), "status": "ok"}
 print(orjson.dumps(data).decode())
 # Вывод: {"metadata":{"id": 1, "data": "precomputed"},"status":"ok"}
 ```
+
+* **Исключения:**
+
+**orjson.JSONEncodeError**: Наследник TypeError. Возникает при ошибках в процессе сериализации (например, неподдерживаемый тип, некорректная UTF-8 строка, слишком большое число) .
+
+**orjson.JSONDecodeError**: Возникает при ошибках десериализации, если входные данные не являются корректным JSON .
