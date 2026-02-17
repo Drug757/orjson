@@ -89,6 +89,15 @@ print(orjson.dumps({"arr": np.array([1,2,3])}, option=orjson.OPT_SERIALIZE_NUMPY
 print(orjson.dumps({"time": datetime.datetime(2024,1,1,12,0)}, option=orjson.OPT_NAIVE_UTC).decode())  # с Z в конце
 ```
 
+**Пример комбинирования нескольких опций через |:**
+```
+data = {"c": 3, "a": 1, "b": 2}
+print(orjson.dumps(
+    data, 
+    option=orjson.OPT_SORT_KEYS | orjson.OPT_INDENT_2
+).decode())
+# Вывод с сортировкой и отступами
+```
 ### 3. Вспомогательные сущности
 
 * **orjson.Fragment** -> Позволяет вставить уже готовый JSON-фрагмент (в виде bytes) в итоговый JSON-документ. Это очень полезно для оптимизации, когда у вас есть предварительно сериализованные данные (например, из кэша), которые не нужно парсить и сериализовать заново.
@@ -105,5 +114,3 @@ print(orjson.dumps(data).decode())
 * **orjson.JSONEncodeError**: Наследник TypeError. Возникает при ошибках в процессе сериализации (например, неподдерживаемый тип, некорректная UTF-8 строка, слишком большое число) .
 
 * **orjson.JSONDecodeError**: Возникает при ошибках десериализации, если входные данные не являются корректным JSON .
-
-Примеры кода в файле Примеры
